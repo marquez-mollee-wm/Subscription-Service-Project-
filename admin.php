@@ -1,6 +1,6 @@
 <?php
-$username = 'rock';
-$password = 'roll';
+$username = 'movies';
+$password = 'rock';
 
 if(!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW'])
     || ($_SERVER['PHP_AUTH_USER'] != $username) || ($_SERVER['PHP_AUTH_PW'] != $password)) {

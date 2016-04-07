@@ -13,7 +13,7 @@ require_once('admin.php');
 <?php
 
 // Connect to the database
-$dbh = new PDO('mysql:host=localhost;dbname=gwdb', 'root', 'root');
+$dbh = new PDO('mysql:host=localhost;dbname=visual', 'root', 'root');
 // Retrieve the score data from MySQL
 $query = "SELECT * FROM movies ";
 $stmt= $dbh->prepare($query);
@@ -23,17 +23,17 @@ $result= $stmt->fetchAll();
 echo '<table>';
 foreach ($result as $row) {
     // Display the score data
-    echo '<tr><td><strong>' . $row['name'] . '</strong></td>';
+    echo '<tr><td><strong>' . $row['movieName'] . '</strong></td>';
     echo '<td>' . $row['moviePic'] . '</td>';
     echo '<td>' . $row['description'] . '</td>';
-    echo '<td><a href="removeMovie.php?id=' . $row['id'] .
-        '&amp;name=' . $row['name'] . '&amp;score=' . $row['score'] .
+    echo '<td><a href="removeMovie.php?id=' . $row['idmovies'] .
+        '&amp;name=' . $row['movieName'] . '&amp;score=' . $row['description'] .
         '&amp;screenshot=' . $row['moviePic'] . '">Remove</a></td>';
 
     if( $row['approve'] == '0'){
-        echo '<td> / <a href="approveMovie.php?id='. $row['id'] . '&amp;date='. $row['date'] .
-            '&amp;name'. $row['name']. '&amp;score='. $row['score'] . '&amp;screenshot=' .
-            $row['screenshot'] . '">Approve</a></td></tr>';
+        echo '<td> / <a href="approveMovie.php?id='. $row['idmovies'] .
+            '&amp;movieName'. $row['movieName']. '&amp;description='. $row['description'] . '&amp;moviePic=' .
+            $row['moviePic'] . '">Approve</a></td></tr>';
     }
 }
 
