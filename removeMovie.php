@@ -17,28 +17,15 @@ require_once('admin.php');
 define('GW_UPLOADPATH', 'images/');
 define('GW_MAXFILESIZE','100000000' );
 
-if (isset($_GET['idmovies'])  && isset($_GET['movieName']) && isset($_GET['description']) && isset($_GET['moviePic'])) {
-    // Grab the score data from the GET
-    $id = $_GET['idmovies'];
-    $movieName = $_GET['movieName'];
-    $description = $_GET['description'];
-    $moviePic = $_GET['moviePic'];
-}
-else if (isset($_POST['idmovies']) && isset($_POST['movieName']) && isset($_POST['description'])) {
-    // Grab the score data from the POST
-    $id = $_POST['idmovies'];
-    $movieName = $_POST['movieName'];
-    $description = $_POST['description'];
-}
-else {
-    echo '<p class="error">Sorry, no movie was specified for removal.</p>';
-}
+
+    $id = (@$_GET['idmovies']) ? $_GET['idmovies'] : $_POST['idmovies'];
+    $movieName = (@$_GET['movieName']) ? $_GET['movieName'] : $_POST['movieName'];
+    $description = (@$_GET['description']) ? $_GET['description'] : $_POST['description'];
+    $moviePic = @$_GET['moviePic'];
+
 
 if (isset($_POST['submit'])) {
     if ($_POST['confirm'] == 'Yes') {
-        $moviePic = $_GET['moviePic'];
-        // Delete the screen shot image file from the server
-
 
         $dbh = new PDO('mysql:host=localhost;dbname=visual', 'root', 'root');
         // Delete the score data from the database
@@ -61,9 +48,9 @@ else if (isset($id) && isset($movieName) && isset($description) ) {
     echo '<input type="radio" name="confirm" value="Yes" /> Yes ';
     echo '<input type="radio" name="confirm" value="No" checked="checked" /> No <br />';
     echo '<input type="submit" value="Submit" name="submit" />';
-    echo '<input type="hidden" name="id" value="' . $id . '" />';
-    echo '<input type="hidden" name="name" value="' . $movieName. '" />';
-    echo '<input type="hidden" name="score" value="' . $description . '" />';
+    echo '<input type="hidden" name="idmovies" value="' . $id . '" />';
+    echo '<input type="hidden" name="movieName" value="' . $movieName. '" />';
+    echo '<input type="hidden" name="description" value="' . $description . '" />';
     echo '</form>';
 }
 

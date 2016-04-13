@@ -26,9 +26,9 @@ foreach ($result as $row) {
     echo '<tr><td><strong>' . $row['movieName'] . '</strong></td>';
     echo '<td>' . $row['moviePic'] . '</td>';
     echo '<td>' . $row['description'] . '</td>';
-    echo '<td><a href="removeMovie.php?id=' . $row['idmovies'] .
-        '&amp;name=' . $row['movieName'] . '&amp;score=' . $row['description'] .
-        '&amp;screenshot=' . $row['moviePic'] . '">Remove</a></td>';
+    echo '<td><a href="removeMovie.php?idmovies=' . $row['idmovies'] .
+        '&amp;movieName=' . $row['movieName'] . '&amp;description=' . $row['description'] .
+      '&amp;moviePic=' . $row['moviePic'] . '">Remove</a></td>';
 
     if( $row['approve'] == '0'){
         echo '<td> / <a href="approveMovie.php?id='. $row['idmovies'] .
