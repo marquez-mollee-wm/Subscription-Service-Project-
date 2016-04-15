@@ -54,7 +54,7 @@ else if (isset($id) && isset($movieName) && isset($description) ) {
     echo '</form>';
 }
 
-echo '<p><a href="approveMovie.php">&lt;&lt; Back to admin page</a></p>';
+echo '<p><a href="admin.php">&lt;&lt; Back to admin page</a></p>';
 ?>
 ​
 </body>

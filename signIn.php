@@ -36,23 +36,15 @@ if(isset($_POST['login'])) {
 <head>
     <title></title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" script-name="aguafina-script" src="http://use.edgefonts.net/aguafina-script.js"></script>
-
 </head>
+<style>
+    html{
+        background: url("images/signIn.jpg") no-repeat center center fixed;
+        background-size: cover;
+    }
+</style>
 <body>
-<div class="signInContainer">
-    <!--HEADER-->
-    <header class="head">
-        <h1>...</h1>
-    </header>
-    <!-- END HEADER-->
-    <div class="box">
 
-        <div class="rightside">
-            <img src="http://41.media.tumblr.com/tumblr_l3bc6vSgcd1qbvsixo1_1280.jpg">
-        </div>
-
-        <div id="border">
             <header class="title">
                 <h1>Sign-In</h1>
             </header>
@@ -65,19 +57,17 @@ if(isset($_POST['login'])) {
                     <button type='submit' name='login' value='1'>Submit</button>
                 </form>
             </div>
-        </div>
-    </div>
+
     <!--FOOTER-->
     <footer>
         <div class="copyright">
-            <p>&copy 2015 - modsupplies,Inc. All Rights Reserved</p>
+            <p>&copy 2016 - Visual,Inc. All Rights Reserved</p>
         </div>
         <div class="logo1">
-            <img src="pics/logo.png">
+
         </div>
         <div class="links">
-            <a href="index.html">Home</a>
-            <a href="signIn.php">Sign-In</a>
+            <a href="index.php">Home</a>
             <a href="">About Us</a>
         </div>
     </footer>
